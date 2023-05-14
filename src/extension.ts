@@ -136,7 +136,7 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.window.registerTreeDataProvider('favoritesPanelExplorer', favoritesPanelProvider);
     vscode.commands.registerCommand(`${PLUGIN_NAME}.refreshPanel`, () => favoritesPanelProvider.refresh());
     vscode.commands.registerCommand(`${PLUGIN_NAME}.openFavoritesPanelSettings`, () => {
-        runCommand(['workbench.action.openSettings', `@ext:sabitovvt.favorites-panel`]);
+        runCommand(['workbench.action.openSettings', `@ext:sabitovvt.shortcuts-panel-one`]);
     }),
         vscode.commands.registerCommand(`${PLUGIN_NAME}.openUserJsonSettings`, () => {
             runCommand(['workbench.action.openSettingsJson']);
@@ -144,7 +144,6 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand(`${PLUGIN_NAME}.openWorkspaceJsonSettings`, () => {
             runCommand(['workbench.action.openWorkspaceSettingsFile']);
         }),
-
         context.subscriptions.push(
             vscode.commands.registerCommand(`${PLUGIN_NAME}.openFile`, (args) => {
                 openFile(args);
