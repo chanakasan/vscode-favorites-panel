@@ -2,7 +2,7 @@
     "name": "shortcuts-panel-one",
     "displayName": "Favorites panel",
     "description": "Use the extension to create a panel with your favorite commands, folders, files, URLs.",
-    "version": "1.4.1",
+    "version": "2.0.0b",
     "publisher": "sabitovvt",
     "engines": {
         "vscode": "^1.53.0"
@@ -16,7 +16,7 @@
         "groups",
         "favorite files"
     ],
-    "icon": "resources/shortcuts-panel-one.png",
+    "icon": "resources/favorites-panel.png",
     "homepage": "https://github.com/sabitovvt/vscode-favorites-panel",
     "repository": {
         "type": "git",
@@ -90,27 +90,17 @@
         "viewsContainers": {
             "activitybar": [
                 {
-                    "id": "favoritesPanel",
+                    "id": "gitbooksPanel",
                     "title": "Favorites Panel",
-                    "icon": "resources/shortcuts-panel-one.svg"
+                    "icon": "resources/favorites-panel.svg"
                 }
             ]
         },
         "views": {
-            "favoritesPanel": [
+            "gitbooksPanel": [
                 {
-                    "id": "favoritesPanel",
-                    "name": "Favorites Panel",
-                    "when": "config.favoritesPanel.explorerView != true"
-                }
-            ],
-            "explorer": [
-                {
-                    "id": "favoritesPanelExplorer",
-                    "name": "Favorites Panel",
-                    "contextualTitle": "Favorites Panel",
-                    "icon": "resources/shortcuts-panel-one.svg",
-                    "when": "config.favoritesPanel.explorerView == true"
+                    "id": "gitbooksPanel",
+                    "name": "Gitbooks Panel"
                 }
             ]
         }
