@@ -13,6 +13,15 @@ export function runProgram(program: string) {
     });
 }
 
+export function openFolder(args: any) {
+    let document: string;
+
+    if (!args[0]) {
+        errors.add(ERRORS.COMMAND_NOT_FOUND);
+    }
+    vscode.commands.executeCommand('vscode.openFolder', vscode.Uri.file(args[0]));
+}
+
 // Open file
 export function openFile(args: any) {
     const projectPath: string = vscode.workspace.rootPath || '';

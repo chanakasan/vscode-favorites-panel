@@ -6,7 +6,7 @@ import {PLUGIN_NAME} from './consts';
 import {ICommandWithSequence, IStore, TCommand} from './types';
 import {FavoritesPanelProvider} from './FavoritesPanelProvider';
 import {TreeItem} from './TreeItem';
-import {insertNewCode, openFile, openUrl, runCommand, runProgram, runSequence} from './commands';
+import {openFolder} from './commands';
 import {Errors} from './Errors';
 
 // initial store.
@@ -20,16 +20,8 @@ export const errors = new Errors();
 const getIcon = (item: any, color: string) => {
     const themeColor = new vscode.ThemeColor(color ?? '');
     switch (item.command) {
-        case 'openFile':
-            return new vscode.ThemeIcon('symbol-file', themeColor);
-        case 'openUrl': // DEPRECATED
-            return new vscode.ThemeIcon('link-external', themeColor);
-        case 'run':
-            return new vscode.ThemeIcon('console', themeColor);
-        case 'runCommand':
-            return new vscode.ThemeIcon('run', themeColor);
-        case 'insertNewCode':
-            return new vscode.ThemeIcon('find-replace', themeColor);
+        case 'openFolder':
+            return new vscode.ThemeIcon('symbol-folder', themeColor);
         default:
             return vscode.ThemeIcon.File;
     }
@@ -37,30 +29,12 @@ const getIcon = (item: any, color: string) => {
 
 // Get command from item of settings
 const getCommand = (item: ICommandWithSequence) => {
-    if (item.sequence) {
-        return getSequence(item);
-    }
     return {
         label: item.label,
         description: item.description,
         command: {
             command: `${PLUGIN_NAME}.${item.command}`,
             arguments: [item.arguments],
-        },
-        iconPath:
-            (item.icon && new vscode.ThemeIcon(item.icon, new vscode.ThemeColor(item.iconColor ?? ''))) ||
-            getIcon(item, item.iconColor ?? ''),
-    };
-};
-
-// Get Sequence from item of settings
-const getSequence = (item: ICommandWithSequence) => {
-    return {
-        label: item.label,
-        description: item.description,
-        command: {
-            command: `${PLUGIN_NAME}.runSequence`,
-            arguments: [item.sequence],
         },
         iconPath:
             (item.icon && new vscode.ThemeIcon(item.icon, new vscode.ThemeColor(item.iconColor ?? ''))) ||

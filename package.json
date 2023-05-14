@@ -67,17 +67,7 @@
                     "group": "navigation"
                 },
                 {
-                    "command": "favoritesPanel.openFavoritesPanelSettings",
-                    "when": "view == favoritesPanel || view == favoritesPanelExplorer",
-                    "group": "navigation"
-                },
-                {
                     "command": "favoritesPanel.openUserJsonSettings",
-                    "when": "view == favoritesPanel || view == favoritesPanelExplorer",
-                    "group": "navigation"
-                },
-                {
-                    "command": "favoritesPanel.openWorkspaceJsonSettings",
                     "when": "view == favoritesPanel || view == favoritesPanelExplorer",
                     "group": "navigation"
                 }
@@ -91,20 +81,8 @@
                 "icon": "$(refresh)"
             },
             {
-                "command": "favoritesPanel.openFavoritesPanelSettings",
-                "title": "Open settings",
-                "category": "Favorites Panel",
-                "icon": "$(gear)"
-            },
-            {
                 "command": "favoritesPanel.openUserJsonSettings",
                 "title": "User JSON settings",
-                "category": "Favorites Panel",
-                "icon": "$(file-code)"
-            },
-            {
-                "command": "favoritesPanel.openWorkspaceJsonSettings",
-                "title": "Workspace JSON settings",
                 "category": "Favorites Panel",
                 "icon": "$(file-code)"
             }
